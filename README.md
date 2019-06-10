@@ -59,11 +59,21 @@ python train_multi_gpu.py --dataset KITTI --net ShuffleDet_conv1_stride1 --stude
 
 >models will be saved in ```train_dir```
 
-### Test
+### Evaluation
+By default, the evaluation code runs while training progress, test all checkpoint saved, after training has started, e.g., the 0.5x student training, you can run
+
 ```
-python test_net.py --dataset pascal_voc --net vgg11 --checksession 1 --checkepoch 2 --checkpoint 10021 --cuda --gpu 0
+python eval_model.py --dataset KITTI --net ShuffleDet_conv1_stride1 --eval_dir /path_to/eval_dir --image_set val --gpu 0 --checkpoint_path /path_to/train_dir --student 0.5
 ```
-change ```checksession```, ```checkepoch```, ```checkpoint``` to test specific model
+Then, tensorboard records can be loaded as(change port if needed)
+```
+tensorboard --logdir=/path_to/eval_dir --port 4118
+```
+and viewed by opening the site
+
+```
+http://localhost:4118
+```
 
 ###
 <table class="tg">
@@ -198,20 +208,25 @@ change ```checksession```, ```checkepoch```, ```checkpoint``` to test specific m
 
 >models with highest mAP are reported for both baseline and distilled model
 
->the numbers are different from the paper as they are independent running of the algorithm and we have migrated from single GPU training to multi-gpu training with larger batch size.
+>**Note** the numbers are different from the paper as they are independent running of the algorithm and we have migrated from single GPU training to multi-gpu training with larger batch size.
 
 ### Test with trained model
-download the trained model at the GoogleDrive link, run
+
+for example, to test the 0.5x distilled model download the trained model at the corresponding GoogleDrive[https://drive.google.com/file/d/1TyU7b957pRkD5PGHgoPy6803XAK0oTK3/view?usp=sharing] link, then run
+
 ```
-python 
+python eval_model.py --dataset KITTI --net ShuffleDet_conv1_stride1 --eval_dir xxx --image_set val --gpu 0 --checkpoint_path /path_to/model0.5x60.4/model.ckpt-33000 --run_once True --student 0.5
 ```
 
 ### Parameter counts
 Note for model size, tensorflow saved checkpoint contains gradients/other information, so the size is larger than it should be, we have not yet freeze the model, to check model size, run
 
 ```
-python src/param_count.py
+
 ```
 
 ### Flops counts
 Still to come...
+
+### Trouble shooting
+* if you got permission denied when eval the model, please try `chmod +x ./dataset_tool/kitti-eval/cpp/evaluate_object`, if not work, just compile the evaluate_object excutable from source, i.e., run **make** under `./dataset_tool/kitti-eval`
