@@ -2,13 +2,21 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import sys
+import argparse
+
+
 import tensorflow as tf
 import numpy as np
 
-ckpt_fpath ='./kitti-0.5x-student-distilled/model.ckpt-13500'
-# ckpt_fpath = './kitti-1x-supervisor/model.ckpt-725000'
-# Open TensorFlow ckpt
+parser = argparse.ArgumentParser(description='count parameters')
+parser.add_argument('--model_path', dest='model_path',
+                    help='model_path for counting parameters', default="",
+                    type=str)
+
+args = parser.parse_args()
+
+ckpt_fpath =args.model_path
+
 reader = tf.train.NewCheckpointReader(ckpt_fpath)
 
 print('\nCount the number of parameters in ckpt file(%s)' % ckpt_fpath)
