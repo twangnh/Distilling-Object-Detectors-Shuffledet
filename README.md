@@ -41,7 +41,7 @@ and put it into `./kitti-1x-supervisor/`
 
 
 ### Train
-we have migrated to multi-gpu training with cross gpu batch normalization, currently batch size of 32 on 4 GPUs is reported, other settings could be tried.
+we have migrated to **multi-gpu training** with **cross gpu batch normalization**, currently batch size of 32 on 4 GPUs is reported, other settings could be tried.
 
 * train with 0.5x student
 ```
