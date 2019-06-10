@@ -1,0 +1,5 @@
+data/KITTI/training*
+pretrained_model/*
+kitti-1x-supervisor/*
+*.pyc
+*~
