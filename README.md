@@ -1,9 +1,8 @@
-🔥Still updating🔥
+🔥Updating🔥
 
 ## TODO
-We have accumulated the following to-do list, which we hope to complete in the near future
 - Still to come:
-  * [ ] separate sub losses to print. Add visualization of detection output.
+  * [ ] Separate sub losses to print. Add visualization of detection output.
   * [ ] Combining the proposed method with model pruning/quantization method.
 
 
