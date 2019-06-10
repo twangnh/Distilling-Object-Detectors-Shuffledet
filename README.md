@@ -20,7 +20,7 @@ git clone https://github.com/twangnh/Distilling-Object-Detectors-Shuffledet
 #### 2 Data preparation
 Note we split KITTI training set into train/val sets and eval our methods and models on val set, since test set label is not available.
 KITTI 2D object detection images are sampled from video, randomly split the training data into train and val set could lead to 
-exceptionally high performance due to correlation between video frames, we follow [MSCNN, Zhaowei Cai et.al.](https://arxiv.org/abs/1607.07155) which split
+exceptionally high performance due to correlation between video frames, we follow [MSCNN [1], Zhaowei Cai et.al.](https://arxiv.org/abs/1607.07155) which split
 KIITI training set to train/val sets while ensuring images frames does not come from close video frames.
 
 * download images at http://www.cvlibs.net/download.php?file=data_object_label_2.zip and extract into `./data/KITTI/training/image_2/`
@@ -250,3 +250,9 @@ if not work, just compile the evaluate_object excutable from source, i.e., run *
   year={2019}
 }
 ```
+## Reference
+[1] Zhaowei Cai, Quanfu Fan, Rogerio S Feris, and Nuno Vasconcelos. A unified multi-scale deep convolutional neural
+network for fast object detection. ECCV 2016
+
+## License
+The code and the models are MIT licensed, as found in the LICENSE file.
