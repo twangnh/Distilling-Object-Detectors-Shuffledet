@@ -239,3 +239,14 @@ Still to come...
 chmod +x ./dataset_tool/kitti-eval/cpp/evaluate_object
 ```
 if not work, just compile the evaluate_object excutable from source, i.e., run **make** under `./dataset_tool/kitti-eval`
+
+## Citation
+```
+@inproceedings{wang2019distilling,
+  title={Distilling Object Detectors With Fine-Grained Feature Imitation},
+  author={Wang, Tao and Yuan, Li and Zhang, Xiaopeng and Feng, Jiashi},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={4933--4942},
+  year={2019}
+}
+```
