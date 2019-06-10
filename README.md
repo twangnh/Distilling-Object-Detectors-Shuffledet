@@ -212,10 +212,15 @@ http://localhost:4118
 
 ### Test with trained model
 
-for example, to test the 0.5x distilled model download the trained model at the corresponding [GoogleDrive](https://drive.google.com/file/d/1TyU7b957pRkD5PGHgoPy6803XAK0oTK3/view?usp=sharing) link, then run
+* For example, to test the 0.5x distilled model download the trained model at the corresponding [GoogleDrive](https://drive.google.com/file/d/1TyU7b957pRkD5PGHgoPy6803XAK0oTK3/view?usp=sharing) link, then run
 
 ```
 python eval_model.py --dataset KITTI --net ShuffleDet_conv1_stride1 --eval_dir xxx --image_set val --gpu 0 --checkpoint_path /path_to/model0.5x60.4/model.ckpt-33000 --run_once True --student 0.5
+```
+* To test the 1x supervisor model, run
+
+```
+python eval_model.py --dataset KITTI --net ShuffleDet_conv1_stride1_supervisor --eval_dir xxx --image_set val --gpu 0 --checkpoint_path ./kitti-1x-supervisor/model.ckpt-725000 --run_once True
 ```
 
 ### Parameter counts
