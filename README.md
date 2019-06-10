@@ -212,21 +212,25 @@ http://localhost:4118
 
 ### Test with trained model
 
-for example, to test the 0.5x distilled model download the trained model at the corresponding GoogleDrive[https://drive.google.com/file/d/1TyU7b957pRkD5PGHgoPy6803XAK0oTK3/view?usp=sharing] link, then run
+for example, to test the 0.5x distilled model download the trained model at the corresponding [GoogleDrive](https://drive.google.com/file/d/1TyU7b957pRkD5PGHgoPy6803XAK0oTK3/view?usp=sharing) link, then run
 
 ```
 python eval_model.py --dataset KITTI --net ShuffleDet_conv1_stride1 --eval_dir xxx --image_set val --gpu 0 --checkpoint_path /path_to/model0.5x60.4/model.ckpt-33000 --run_once True --student 0.5
 ```
 
 ### Parameter counts
-Note for model size, tensorflow saved checkpoint contains gradients/other information, so the size is larger than it should be, we have not yet freeze the model, to check model size, run
+Note for model size, tensorflow saved checkpoint contains gradients/other information, so the size is larger than it should be, we have not yet freeze the model, to check model size, for exampel, the baseline 0.25x model without imitation, run
 
 ```
-
+python param_count.py --model_path /home/wangtao/prj/shuffledet-multi-gpu-ckpt/model0.25x_nosup_48.0/model.ckpt-40000
 ```
 
 ### Flops counts
 Still to come...
 
 ### Trouble shooting
-* if you got permission denied when eval the model, please try `chmod +x ./dataset_tool/kitti-eval/cpp/evaluate_object`, if not work, just compile the evaluate_object excutable from source, i.e., run **make** under `./dataset_tool/kitti-eval`
+* if you got permission denied when eval the model, please try 
+```
+chmod +x ./dataset_tool/kitti-eval/cpp/evaluate_object
+```
+if not work, just compile the evaluate_object excutable from source, i.e., run **make** under `./dataset_tool/kitti-eval`
