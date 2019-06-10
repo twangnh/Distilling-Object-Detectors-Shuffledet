@@ -1,21 +1,9 @@
-hould be, we have not yet freeze the model,
-to check model size, run
-python src/param_count.py
-under project directory
- Distilling-Object-Detectors-Shuffledet
 🔥Still updating🔥
 
-paramcount, flopcount
-INote for model size, tensorflow saved checkpoint contains gradients/other information, so the size is larger than it
-should be, we have not yet freeze the model,
-to check model size, run
-python src/param_count.py
-under project directory
 ## TODO
 We have accumulated the following to-do list, which we hope to complete in the near future
 - Still to come:
-  * [ ] separate sub losses to print, not only total loss. Add visualization of detection output.
-  * [ ] .
+  * [ ] separate sub losses to print. Add visualization of detection output.
   * [ ] Combining the proposed method with model pruning/quantization method.
 
 
@@ -218,3 +206,13 @@ download the trained model at the GoogleDrive link, run
 ```
 python 
 ```
+
+### Parameter counts
+Note for model size, tensorflow saved checkpoint contains gradients/other information, so the size is larger than it should be, we have not yet freeze the model, to check model size, run
+
+```
+python src/param_count.py
+```
+
+### Flops counts
+Still to come...
