@@ -44,31 +44,6 @@ tf.app.flags.DEFINE_string('gpu', '0', """gpu id.""")
 tf.app.flags.DEFINE_float('student', 0.5, """student model, 0.5 or 0.25""")
 tf.app.flags.DEFINE_bool('without_imitation', False, """whether to turn off imitation loss""")
 
-def _draw_box(im, box_list, label_list, color=(0, 255, 0), cdict=None, form='center'):
-    assert form == 'center' or form == 'diagonal', \
-        'bounding box format not accepted: {}.'.format(form)
-
-    for bbox, label in zip(box_list, label_list):
-
-        if form == 'center':
-            bbox = bbox_transform(bbox)
-
-        xmin, ymin, xmax, ymax = [int(b) for b in bbox]
-
-        l = label.split(':')[0]  # text before "CLASS: (PROB)"
-        if cdict and l in cdict:
-            c = cdict[l]
-        else:
-            c = color
-
-        # draw box
-        cv2.rectangle(im, (xmin, ymin), (xmax, ymax), c, 1)
-        # draw label
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(im, label, (xmin, ymax), font, 0.3, c, 1)
-
-
-
 
 def train():
     assert FLAGS.dataset == 'KITTI', \
