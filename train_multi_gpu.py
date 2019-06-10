@@ -40,7 +40,6 @@ tf.app.flags.DEFINE_integer('print_step', 20,
                             """Number of steps to print.""")
 tf.app.flags.DEFINE_integer('checkpoint_step', 500,
                             """Number of steps to save summary.""")
-tf.app.flags.DEFINE_string('gpu', '0', """gpu id.""")
 tf.app.flags.DEFINE_float('student', 0.5, """student model, 0.5 or 0.25""")
 tf.app.flags.DEFINE_bool('without_imitation', False, """whether to turn off imitation loss""")
 
