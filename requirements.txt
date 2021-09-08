@@ -2,6 +2,6 @@ easydict==1.7
 joblib==0.12.0
 numpy==1.15.4
 opencv-python==3.4.1.15
-Pillow==5.2.0
+Pillow==8.3.2
 tensorflow-gpu==1.8.0
 tensorpack==0.8.6
